@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
+import Items from './components/Items';
+import Basket from './components/Basket';
 
 function App() {
+  const [basket, setBasket] = useState([]);
   return (
+    <BrowserRouter>
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Proxima's Market</h1>
+        <nav>
+          <Link class="link" to="/items">Home</Link>
+          <Link class="link" to="/basket">Basket</Link>
+        </nav>
+        <Routes>
+          <Route path="/items" element={<Items basket={basket} setBasket={setBasket} />} />
+          <Route path="/basket" element={<Basket basket={basket} />} />
+        </Routes>
       </header>
     </div>
+    </BrowserRouter>
   );
 }
 
