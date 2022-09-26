@@ -12,12 +12,12 @@ function App() {
       <header className="App-header">
         <h1>Proxima's Market</h1>
         <nav>
-          <Link class="link" to="/items">Home</Link>
+          <Link class="link" to="/items">Store</Link>
           <Link class="link" to="/basket">Basket</Link>
         </nav>
         <Routes>
           <Route path="/items" element={<Items basket={basket} setBasket={setBasket} />} />
-          <Route path="/basket" element={<Basket basket={basket} />} />
+          <Route path="/basket" element={<Basket basket={basket} setBasket={setBasket} />} />
         </Routes>
       </header>
     </div>

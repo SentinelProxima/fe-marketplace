@@ -23,7 +23,8 @@ const Items = (props) => {
                 } else {
                     const addToBasket = {
                         name: item.item_name,
-                        quantity: 1
+                        quantity: 1,
+                        id: item.item_id
                     };
                     currentBasket[item.item_id] = addToBasket;
                 }
